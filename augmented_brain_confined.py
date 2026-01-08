@@ -801,9 +801,12 @@ def create_interface(agent: ConfinedAugmentedBrain):
                 return []
             out = []
             for item in h:
-                # already a dict
+                # dict with role/content
                 if isinstance(item, dict) and 'role' in item and 'content' in item:
                     out.append({'role': str(item['role']), 'content': str(item['content'])})
+                # ChatMessage-like object
+                elif hasattr(item, 'role') and hasattr(item, 'content'):
+                    out.append({'role': str(item.role), 'content': str(item.content)})
                 # tuple pair (user, assistant) or list pair
                 elif isinstance(item, (list, tuple)) and len(item) == 2:
                     out.append({'role': 'user', 'content': str(item[0])})
@@ -821,6 +824,14 @@ def create_interface(agent: ConfinedAugmentedBrain):
         try:
             from gradio.components.chatbot import ChatMessage
             prev = [ChatMessage(role=p['role'], content=p['content']) for p in prev]
+        except Exception:
+            pass
+
+        try:
+            with open('/workspaces/AGI-/chat_debug.log', 'a', encoding='utf-8') as f:
+                f.write('RETURNING_HISTORY:\n')
+                for i, p in enumerate(prev):
+                    f.write(f'{i}: type={type(p)} repr={repr(p)}\n')
         except Exception:
             pass
 

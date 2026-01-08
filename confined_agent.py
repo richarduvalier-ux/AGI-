@@ -717,6 +717,8 @@ def create_confined_chat_interface():
             for item in h:
                 if isinstance(item, dict) and 'role' in item and 'content' in item:
                     out.append({'role': str(item['role']), 'content': str(item['content'])})
+                elif hasattr(item, 'role') and hasattr(item, 'content'):
+                    out.append({'role': str(item.role), 'content': str(item.content)})
                 elif isinstance(item, (list, tuple)) and len(item) == 2:
                     out.append({'role': 'user', 'content': str(item[0])})
                     out.append({'role': 'assistant', 'content': str(item[1])})
@@ -731,6 +733,15 @@ def create_confined_chat_interface():
         try:
             from gradio.components.chatbot import ChatMessage
             prev = [ChatMessage(role=p['role'], content=p['content']) for p in prev]
+        except Exception:
+            pass
+
+        # Debug dump to help diagnose incompatible message formats
+        try:
+            with open('/workspaces/AGI-/chat_debug.log', 'a', encoding='utf-8') as f:
+                f.write('RETURNING_HISTORY:\n')
+                for i, p in enumerate(prev):
+                    f.write(f'{i}: type={type(p)} repr={repr(p)}\n')
         except Exception:
             pass
 
