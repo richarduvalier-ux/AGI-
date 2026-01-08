@@ -17,3 +17,21 @@ Traceback (most recent call last):
   File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/components/chatbot.py", line 402, in _check_format
     raise Error(
 gradio.exceptions.Error: "Data incompatible with messages format. Each message should be a dictionary with 'role' and 'content' keys or a ChatMessage object."
+Traceback (most recent call last):
+  File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/queueing.py", line 766, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/route_utils.py", line 355, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/blocks.py", line 2158, in process_api
+    data = await self.postprocess_data(block_fn, result["prediction"], state)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/blocks.py", line 1935, in postprocess_data
+    prediction_value = block.postprocess(prediction_value)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/components/chatbot.py", line 695, in postprocess
+    self._check_format(value)
+  File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/components/chatbot.py", line 402, in _check_format
+    raise Error(
+gradio.exceptions.Error: "Data incompatible with messages format. Each message should be a dictionary with 'role' and 'content' keys or a ChatMessage object."
