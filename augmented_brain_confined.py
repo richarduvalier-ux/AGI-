@@ -25,6 +25,13 @@ else:
     except Exception:
         np = None  # type: ignore
 
+# Inform the type checker about optional `gradio` to silence missing-import reports
+if TYPE_CHECKING:
+    try:
+        import gradio as gr  # type: ignore
+    except Exception:
+        gr = None  # type: ignore
+
 # ============================================================================
 # MÉMOIRE
 # ============================================================================
