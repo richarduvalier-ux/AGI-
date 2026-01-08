@@ -716,32 +716,31 @@ def create_confined_chat_interface():
             out = []
             for item in h:
                 if isinstance(item, dict) and 'role' in item and 'content' in item:
-                    out.append({'role': str(item['role']), 'content': str(item['content'])})
+                    text = item['content']
+                    out.append({'role': str(item['role']), 'metadata': None, 'content': [{'text': str(text), 'type': 'text'}], 'options': None})
                 elif hasattr(item, 'role') and hasattr(item, 'content'):
-                    out.append({'role': str(item.role), 'content': str(item.content)})
+                    text = item.content
+                    out.append({'role': str(item.role), 'metadata': None, 'content': [{'text': str(text), 'type': 'text'}], 'options': None})
                 elif isinstance(item, (list, tuple)) and len(item) == 2:
-                    out.append({'role': 'user', 'content': str(item[0])})
-                    out.append({'role': 'assistant', 'content': str(item[1])})
+                    out.append({'role': 'user', 'metadata': None, 'content': [{'text': str(item[0]), 'type': 'text'}], 'options': None})
+                    out.append({'role': 'assistant', 'metadata': None, 'content': [{'text': str(item[1]), 'type': 'text'}], 'options': None})
                 else:
-                    out.append({'role': 'user', 'content': str(item)})
+                    out.append({'role': 'user', 'metadata': None, 'content': [{'text': str(item), 'type': 'text'}], 'options': None})
             return out
 
         prev = _normalize(history)
-        prev.append({'role': 'user', 'content': str(message)})
-        prev.append({'role': 'assistant', 'content': str(response)})
-
-        try:
-            from gradio.components.chatbot import ChatMessage
-            prev = [ChatMessage(role=p['role'], content=p['content']) for p in prev]
-        except Exception:
-            pass
+        prev.append({'role': 'user', 'metadata': None, 'content': [{'text': str(message), 'type': 'text'}], 'options': None})
+        prev.append({'role': 'assistant', 'metadata': None, 'content': [{'text': str(response), 'type': 'text'}], 'options': None})
 
         # Debug dump to help diagnose incompatible message formats
         try:
             with open('/workspaces/AGI-/chat_debug.log', 'a', encoding='utf-8') as f:
                 f.write('RETURNING_HISTORY:\n')
                 for i, p in enumerate(prev):
-                    f.write(f'{i}: type={type(p)} repr={repr(p)}\n')
+                    try:
+                        f.write(f'{i}: type={type(p)} repr={repr(p)}\n')
+                    except Exception:
+                        f.write(f'{i}: UNPRINTABLE\n')
         except Exception:
             pass
 
