@@ -695,8 +695,9 @@ Comment puis-je vous aider ?"""
 def create_confined_chat_interface():
     """Interface de chat pour la version confinée"""
     try:
-        import gradio as gr
-    except ImportError:
+        import importlib
+        gr = importlib.import_module("gradio")
+    except Exception:
         print("Gradio non installé. Installez avec : pip install gradio")
         return None
     
