@@ -727,6 +727,13 @@ def create_confined_chat_interface():
         prev = _normalize(history)
         prev.append({'role': 'user', 'content': str(message)})
         prev.append({'role': 'assistant', 'content': str(response)})
+
+        try:
+            from gradio.components.chatbot import ChatMessage
+            prev = [ChatMessage(role=p['role'], content=p['content']) for p in prev]
+        except Exception:
+            pass
+
         return "", prev
     
     def get_status_fn():

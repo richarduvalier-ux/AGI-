@@ -816,6 +816,14 @@ def create_interface(agent: ConfinedAugmentedBrain):
         prev = _normalize(history)
         prev.append({'role': 'user', 'content': str(message)})
         prev.append({'role': 'assistant', 'content': str(resp)})
+
+        # Convert dicts to ChatMessage objects for strict compatibility
+        try:
+            from gradio.components.chatbot import ChatMessage
+            prev = [ChatMessage(role=p['role'], content=p['content']) for p in prev]
+        except Exception:
+            pass
+
         return "", prev
 
     with gr.Blocks(title="Augmented Brain - Confined") as demo:
