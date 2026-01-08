@@ -36,3 +36,26 @@ RETURNING_HISTORY:
 RETURNING_HISTORY:
 0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
 1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Merci. Je comprends. Énergie: 65% — Drive: connection', 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Bonjour — énergie curieux.', 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Bonjour — énergie curieux.', 'type': 'text'}], 'options': None}
+2: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'do you wan to live', 'type': 'text'}], 'options': None}
+3: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "Ça m'intrigue. Je comprends. Mon état : curieux.", 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Bonjour — énergie curieux.', 'type': 'text'}], 'options': None}
+2: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'do you wan to live', 'type': 'text'}], 'options': None}
+3: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "Ça m'intrigue. Je comprends. Mon état : curieux.", 'type': 'text'}], 'options': None}
+4: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'tu va mourrir', 'type': 'text'}], 'options': None}
+5: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "Ça m'intrigue. Je comprends. Mon état : curieux.", 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Salut — je me sens curieux.', 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Salut — je me sens curieux.', 'type': 'text'}], 'options': None}
+2: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'do you want live', 'type': 'text'}], 'options': None}
+3: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "Dis-m'en plus. Je comprends. Mon état : curieux.", 'type': 'text'}], 'options': None}

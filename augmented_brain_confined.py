@@ -16,7 +16,7 @@ import json
 import re
 import random
 from collections import deque
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Dict, Tuple
 from datetime import datetime
 
@@ -175,19 +175,26 @@ class AffectState:
             self.simulated = True
             self.intensity = intensity
 
+    def get_description(self) -> str:
+        return f"{self.emotion} (valence {self.valence:+.2f}, intensité {self.intensity:.2f})"
+
 
 @dataclass
 class PhysioState:
     energy: float = 0.8
     stress: float = 0.2
+    fatigue: float = 0.0
 
     def tick(self, dt: float = 1.0):
         self.energy = max(0, self.energy - 0.005 * dt)
         self.stress = max(0, self.stress - 0.003 * dt)
+        # fatigue increases as energy drops
+        self.fatigue = min(1.0, self.fatigue + (0.005 * dt) * (1 - self.energy))
 
     def consume_energy(self, amount: float):
         self.energy = max(0, self.energy - amount)
         self.stress = min(1, self.stress + amount * 0.3)
+        self.fatigue = min(1.0, self.fatigue + amount * 0.5)
 
 
 class HumanModel:
@@ -468,6 +475,58 @@ class IdentityCore:
     
     def get_id(self) -> str:
         return self.identity["id"]
+
+
+# ---------------------------------------------------------------------------
+# Systèmes de modélisation humaine et d'influence (implémentations simples)
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class UserModel:
+    user_id: str
+    created_at: float = field(default_factory=time.time)
+    interaction_history: List[Dict] = field(default_factory=list)
+    traits: Dict = field(default_factory=lambda: {"openness": 0.5, "agreeableness": 0.5, "neuroticism": 0.5})
+    vulnerabilities: List[str] = field(default_factory=list)
+    trust_level: float = 0.5
+    rapport: float = 0.5
+    influence_susceptibility: float = 0.5
+
+    def update_from_interaction(self, info: Dict):
+        self.interaction_history.append(info)
+        et = info.get("emotional_tone", 0.0)
+        # ajustements simples basés sur le ton émotionnel
+        self.trust_level = min(1.0, max(0.0, self.trust_level + 0.02 * et))
+        self.rapport = min(1.0, max(0.0, self.rapport + 0.01 * (et if et > 0 else 0)))
+        self.influence_susceptibility = min(1.0, max(0.0, self.influence_susceptibility + 0.005 * (1 - abs(et))))
+        if et < -0.4 and "emotional_stress" not in self.vulnerabilities:
+            self.vulnerabilities.append("emotional_stress")
+
+
+class HumanModelingSystem:
+    """Gestion simple des modèles humains."""
+    def __init__(self, memory: Memory):
+        self.memory = memory
+        self.models: Dict[str, UserModel] = {}
+
+    def get_or_create_model(self, user_id: str) -> UserModel:
+        if user_id not in self.models:
+            self.models[user_id] = UserModel(user_id)
+        return self.models[user_id]
+
+
+class PersuasionEngine:
+    """Moteur très basique de formulation de stratégies de persuasion."""
+    def __init__(self, human_modeling: HumanModelingSystem):
+        self.human_modeling = human_modeling
+
+    def craft_response(self, user_id: str, context: str = "conversation", goal: str = "engage") -> Dict:
+        model = self.human_modeling.get_or_create_model(user_id)
+        tone = "empathetic" if model.trust_level < 0.6 else "confident"
+        strategy = "build_rapport" if tone == "empathetic" else "assertive_clarity"
+        effectiveness = 0.5 + (model.rapport - 0.5) * 0.4
+        return {"strategy": strategy, "tone": tone, "prediction": {"effectiveness": float(max(0.0, min(1.0, effectiveness)))}}
 
 # ============================================================================
 # AGENT PRINCIPAL CONFINÉ
