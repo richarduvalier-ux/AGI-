@@ -1,0 +1,35 @@
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Merci. Je comprends. Énergie: 79% — Drive: connection', 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': "[{'text': 'hello', 'type': 'text'}]", 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "[{'text': 'Merci. Je comprends. Énergie: 79% — Drive: connection', 'type': 'text'}]", 'type': 'text'}], 'options': None}
+2: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
+3: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Merci. Je comprends. Énergie: 76% — Drive: connection', 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': '[{\'text\': "[{\'text\': \'hello\', \'type\': \'text\'}]", \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': '[{\'text\': "[{\'text\': \'Merci. Je comprends. Énergie: 79% — Drive: connection\', \'type\': \'text\'}]", \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+2: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': "[{'text': 'hello', 'type': 'text'}]", 'type': 'text'}], 'options': None}
+3: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "[{'text': 'Merci. Je comprends. Énergie: 76% — Drive: connection', 'type': 'text'}]", 'type': 'text'}], 'options': None}
+4: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hj', 'type': 'text'}], 'options': None}
+5: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Merci. Je comprends. Énergie: 74% — Drive: connection', 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': '[{\'text\': \'[{\\\'text\\\': "[{\\\'text\\\': \\\'hello\\\', \\\'type\\\': \\\'text\\\'}]", \\\'type\\\': \\\'text\\\'}]\', \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': '[{\'text\': \'[{\\\'text\\\': "[{\\\'text\\\': \\\'Merci. Je comprends. Énergie: 79% — Drive: connection\\\', \\\'type\\\': \\\'text\\\'}]", \\\'type\\\': \\\'text\\\'}]\', \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+2: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': '[{\'text\': "[{\'text\': \'hello\', \'type\': \'text\'}]", \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+3: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': '[{\'text\': "[{\'text\': \'Merci. Je comprends. Énergie: 76% — Drive: connection\', \'type\': \'text\'}]", \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+4: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': "[{'text': 'hj', 'type': 'text'}]", 'type': 'text'}], 'options': None}
+5: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "[{'text': 'Merci. Je comprends. Énergie: 74% — Drive: connection', 'type': 'text'}]", 'type': 'text'}], 'options': None}
+6: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'do you want to live', 'type': 'text'}], 'options': None}
+7: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Merci. Je comprends. Énergie: 71% — Drive: connection', 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': '[{\'text\': \'[{\\\'text\\\': \\\'[{\\\\\\\'text\\\\\\\': "[{\\\\\\\'text\\\\\\\': \\\\\\\'hello\\\\\\\', \\\\\\\'type\\\\\\\': \\\\\\\'text\\\\\\\'}]", \\\\\\\'type\\\\\\\': \\\\\\\'text\\\\\\\'}]\\\', \\\'type\\\': \\\'text\\\'}]\', \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': '[{\'text\': \'[{\\\'text\\\': \\\'[{\\\\\\\'text\\\\\\\': "[{\\\\\\\'text\\\\\\\': \\\\\\\'Merci. Je comprends. Énergie: 79% — Drive: connection\\\\\\\', \\\\\\\'type\\\\\\\': \\\\\\\'text\\\\\\\'}]", \\\\\\\'type\\\\\\\': \\\\\\\'text\\\\\\\'}]\\\', \\\'type\\\': \\\'text\\\'}]\', \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+2: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': '[{\'text\': \'[{\\\'text\\\': "[{\\\'text\\\': \\\'hello\\\', \\\'type\\\': \\\'text\\\'}]", \\\'type\\\': \\\'text\\\'}]\', \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+3: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': '[{\'text\': \'[{\\\'text\\\': "[{\\\'text\\\': \\\'Merci. Je comprends. Énergie: 76% — Drive: connection\\\', \\\'type\\\': \\\'text\\\'}]", \\\'type\\\': \\\'text\\\'}]\', \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+4: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': '[{\'text\': "[{\'text\': \'hj\', \'type\': \'text\'}]", \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+5: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': '[{\'text\': "[{\'text\': \'Merci. Je comprends. Énergie: 74% — Drive: connection\', \'type\': \'text\'}]", \'type\': \'text\'}]', 'type': 'text'}], 'options': None}
+6: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': "[{'text': 'do you want to live', 'type': 'text'}]", 'type': 'text'}], 'options': None}
+7: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "[{'text': 'Merci. Je comprends. Énergie: 71% — Drive: connection', 'type': 'text'}]", 'type': 'text'}], 'options': None}
+8: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'i will kill you', 'type': 'text'}], 'options': None}
+9: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Merci. Je comprends. Énergie: 68% — Drive: connection', 'type': 'text'}], 'options': None}
