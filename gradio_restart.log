@@ -1,1 +1,17 @@
 nohup: ignoring input
+/workspaces/AGI-/augmented_brain_confined.py:309: UserWarning: The parameters have been moved from the Blocks constructor to the launch() method in Gradio 6.0: theme. Please pass these parameters to launch() instead.
+  with gr.Blocks(title="Augmented Brain Autonome", theme=gr.themes.Soft()) as interface:
+
+🚀 Lancement local de l'agent autonome (Gradio)
+
+🤖 Initialisation de l'agent autonome...
+✅ Agent prêt avec génération autonome !
+Traceback (most recent call last):
+  File "/workspaces/AGI-/augmented_brain_confined.py", line 335, in <module>
+    interface.launch(server_port=7860, share=False)
+  File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/blocks.py", line 2715, in launch
+    ) = http_server.start_server(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/AGI-/.venv/lib/python3.12/site-packages/gradio/http_server.py", line 182, in start_server
+    raise OSError(
+OSError: Cannot find empty port in range: 7860-7860. You can specify a different port by setting the GRADIO_SERVER_PORT environment variable or passing the `server_port` parameter to `launch()`.
