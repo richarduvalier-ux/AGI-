@@ -3,12 +3,27 @@ Confined Augmented Brain - version safe/offline
 Contient la version confinée de l'agent fournie par l'utilisateur.
 """
 
-import numpy as np
 import time
 import json
 from collections import deque
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, TYPE_CHECKING, Any
+
+# Import numpy de manière sûre (permet d'éviter des erreurs d'analyse statique)
+if TYPE_CHECKING:
+    import numpy as np  # type: ignore
+else:
+    try:
+        import numpy as np
+    except Exception:
+        np = None  # type: ignore
+
+# Déclarer `gradio` pour le vérificateur de types (s'il est utilisé plus bas)
+if TYPE_CHECKING:
+    try:
+        import gradio as gr  # type: ignore
+    except Exception:
+        gr = None  # type: ignore
 
 # ============================================================================
 # MODULES DE BASE (gardés intacts)
