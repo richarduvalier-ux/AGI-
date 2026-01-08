@@ -785,7 +785,8 @@ Ces états influencent ma communication avec vous."""
 
 def create_interface(agent: ConfinedAugmentedBrain):
     try:
-        import gradio as gr
+        import importlib
+        gr = importlib.import_module("gradio")
     except Exception:
         return None
 
