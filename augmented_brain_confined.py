@@ -791,11 +791,19 @@ def create_interface(agent: ConfinedAugmentedBrain):
         return None
 
     def chat_fn(message, history):
-        if not message.strip():
+        if not message or not str(message).strip():
             return "", history
+
         resp = agent.chat(message, "web_user")
-        history.append((message, resp))
-        return "", history
+
+        # Gradio v6+ expects chat history as a list of messages with 'role' and 'content'
+        if history is None:
+            history = []
+        # make a shallow copy to avoid mutating Gradio internals
+        new_history = list(history)
+        new_history.append({"role": "user", "content": str(message)})
+        new_history.append({"role": "assistant", "content": str(resp)})
+        return "", new_history
 
     with gr.Blocks(title="Augmented Brain - Confined") as demo:
         chatbot = gr.Chatbot()

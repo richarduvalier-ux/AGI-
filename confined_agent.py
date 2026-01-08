@@ -705,12 +705,17 @@ def create_confined_chat_interface():
     current_user = ["user_default"]  # Liste pour mutabilité
     
     def chat_fn(message: str, history: List[Tuple[str, str]]) -> Tuple[str, List[Tuple[str, str]]]:
-        if not message.strip():
+        if not message or not str(message).strip():
             return "", history
-        
+
         response = agent.chat(message, current_user[0])
-        history.append((message, response))
-        return "", history
+
+        if history is None:
+            history = []
+        new_history = list(history)
+        new_history.append({"role": "user", "content": str(message)})
+        new_history.append({"role": "assistant", "content": str(response)})
+        return "", new_history
     
     def get_status_fn():
         status = agent.get_status()
