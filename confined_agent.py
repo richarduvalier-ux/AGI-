@@ -710,12 +710,24 @@ def create_confined_chat_interface():
 
         response = agent.chat(message, current_user[0])
 
-        if history is None:
-            history = []
-        new_history = list(history)
-        new_history.append({"role": "user", "content": str(message)})
-        new_history.append({"role": "assistant", "content": str(response)})
-        return "", new_history
+        def _normalize(h):
+            if not h:
+                return []
+            out = []
+            for item in h:
+                if isinstance(item, dict) and 'role' in item and 'content' in item:
+                    out.append({'role': str(item['role']), 'content': str(item['content'])})
+                elif isinstance(item, (list, tuple)) and len(item) == 2:
+                    out.append({'role': 'user', 'content': str(item[0])})
+                    out.append({'role': 'assistant', 'content': str(item[1])})
+                else:
+                    out.append({'role': 'user', 'content': str(item)})
+            return out
+
+        prev = _normalize(history)
+        prev.append({'role': 'user', 'content': str(message)})
+        prev.append({'role': 'assistant', 'content': str(response)})
+        return "", prev
     
     def get_status_fn():
         status = agent.get_status()
