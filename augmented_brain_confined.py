@@ -9,13 +9,21 @@ Lancement:
   python augmented_brain_confined.py
 """
 
-import numpy as np
 import time
 import json
 from collections import deque
 from dataclasses import dataclass
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, TYPE_CHECKING, Any
 from datetime import datetime
+
+# Import de numpy sécurisé (supporte analyse statique et absence runtime)
+if TYPE_CHECKING:
+    import numpy as np  # type: ignore
+else:
+    try:
+        import numpy as np
+    except Exception:
+        np = None  # type: ignore
 
 # ============================================================================
 # MÉMOIRE
