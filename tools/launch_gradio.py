@@ -1,7 +1,8 @@
-from augmented_brain_confined import create_gradio_interface
+from augmented_brain_confined import ConfinedAugmentedBrain, create_interface
 
 if __name__ == '__main__':
-    interface = create_gradio_interface()
+    agent = ConfinedAugmentedBrain()
+    interface = create_interface(agent)
     if interface is None:
         print('Gradio interface not available (gradio not installed)')
     else:
