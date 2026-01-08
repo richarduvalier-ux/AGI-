@@ -33,3 +33,6 @@ RETURNING_HISTORY:
 7: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': "[{'text': 'Merci. Je comprends. Énergie: 71% — Drive: connection', 'type': 'text'}]", 'type': 'text'}], 'options': None}
 8: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'i will kill you', 'type': 'text'}], 'options': None}
 9: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Merci. Je comprends. Énergie: 68% — Drive: connection', 'type': 'text'}], 'options': None}
+RETURNING_HISTORY:
+0: type=<class 'dict'> repr={'role': 'user', 'metadata': None, 'content': [{'text': 'hello', 'type': 'text'}], 'options': None}
+1: type=<class 'dict'> repr={'role': 'assistant', 'metadata': None, 'content': [{'text': 'Merci. Je comprends. Énergie: 65% — Drive: connection', 'type': 'text'}], 'options': None}
